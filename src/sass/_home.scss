@@ -1,0 +1,82 @@
+// menu styles
+.menu {
+  width: 100%;
+  padding: 50px 0 0 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-bottom: 280px;
+
+  &-design {
+    width: 30%;
+    border: none;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.09);
+    position: absolute;
+    top: 85px;
+    left: 15%;
+  }
+  &-nav {
+    display: flex;
+    gap: 10%;
+    width: 60%;
+    background: rgba(255, 255, 255, 0.09);
+    padding: 25px 10%;
+    li {
+      text-transform: uppercase;
+      @include fonts(12px, 600);
+      :hover {
+        border-bottom: 2px solid #fff;
+      }
+      a {
+        display: flex;
+        gap: 10%;
+      }
+    }
+  }
+}
+
+// home styles
+.home {
+  height: 100vh;
+  width: 100%;
+  background: url("/src/assets/background-home-desktop.jpg") no-repeat;
+  background-size: cover;
+
+  &-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: -30px;
+  }
+  &-article {
+    width: 30%;
+
+    span {
+      letter-spacing: 5px;
+      text-transform: capitalize;
+      @include fonts(16px, 600);
+    }
+    h2 {
+      text-transform: uppercase;
+      margin: 20px 50px;
+      letter-spacing: 25px;
+      @include fonts(35px, 900);
+    }
+    p {
+      line-height: 30px;
+    }
+  }
+  .explore {
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    @include fonts(18px, 400);
+  }
+}
