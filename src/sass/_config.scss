@@ -2,3 +2,14 @@
     font-size: $size;
     font-weight: $weight;
 }
+@mixin backGround ($url, $bgSize) {
+    background: $url;
+    background-size: $bgSize;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+@mixin displayFlex ($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}

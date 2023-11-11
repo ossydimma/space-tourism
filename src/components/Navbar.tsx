@@ -1,6 +1,31 @@
-import React from "react";
+import {useEffect, useState }from "react"
+import { Link } from "react-router-dom"
 
 function Navbar() {
+
+  const [showMenu, setShowMenu ]= useState<boolean>(window.innerWidth > 480 ? true : false)
+  const [hideMenu, setHideMenu ]= useState<boolean>(window.innerWidth > 480 ? false : true)
+  const [showBar, setShowBar ]= useState<boolean>(window.innerWidth > 480 ? false : true)
+  useEffect(() => {
+    window.addEventListener('resize', ()=> { 
+      if (window.innerWidth > 480) {
+      setShowBar(false)
+      setShowMenu(true)
+      setHideMenu(false)
+    } else {
+      setShowBar(true)
+      setShowMenu(false)
+      setHideMenu(true)
+    }
+   })
+}, [])
+
+  function openMenu(): void{
+    setShowMenu(true)
+  }
+  function closeMenu(): void{
+    setShowMenu(false)
+  }
   return (
     <nav>
       <header className="menu">
@@ -8,28 +33,34 @@ function Navbar() {
           <img src="/src/assets/logo (1).svg" alt="logo" />
         </div>
         <div className="menu-design"></div>
-        <ul className="menu-nav">
+        {showBar && <div className="menu-bar" onClick={openMenu} >
+          <img src="/src/assets/icon-menu.svg" alt="menu bar" />
+        </div>}
+        {showMenu && <ul className="menu-nav">
+          {hideMenu && <div className="close-menu" onClick={closeMenu} >
+            <img src="/src/assets/icon-close.svg" alt="" />
+          </div>}
           <li>
-            <a href="/">
-              <span>01</span> Home
-            </a>
+            <Link to ="/">
+              <span>00</span> Home
+            </Link>
           </li>
           <li>
-            <a href="/">
-              <span>02</span> Destination{" "}
-            </a>
+            <Link to="/Destination">
+              <span>01</span> Destination
+            </Link>
           </li>
           <li>
-            <a href="/">
-              <span>03</span> Crew
-            </a>
+            <Link to="/Authour">
+              <span>02</span> Crew
+            </Link>
           </li>
           <li>
-            <a href="/">
-              <span>04</span> Technology
-            </a>
+            <Link to="/Technology">
+              <span>03</span> Technology
+            </Link>
           </li>
-        </ul>
+        </ul>}
       </header>
     </nav>
   );
