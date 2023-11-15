@@ -3,6 +3,13 @@ import data from "../data.json";
 import { MouseEventHandler, useState } from "react";
 
 function Destination() {
+  
+  const [addActive, setAddActive] = useState({
+    moon: 'active',
+    mars: '',
+    europa: '',
+    titan: '',
+  })
   const [selectedObject, setSelectedObject] = useState<{
     name: string;
     images: { png: string; webp: string };
@@ -10,30 +17,37 @@ function Destination() {
     distance: string;
     travel: string;
   }>(data.destinations[0]);
-  console.log(selectedObject.images.png);
 
   const handleClick: MouseEventHandler<HTMLLIElement> = (event): void => {
     const liElement = event.target as HTMLLIElement;
-    const className = liElement.className;
+    const innerHTML = liElement.innerHTML;
 
-    switch (className) {
+    switch (innerHTML) {
       case "moon":
         setSelectedObject(data.destinations[0]);
+        setAddActive({moon: 'active', mars: '',europa: '', titan: ""})
         break;
       case "mars":
         setSelectedObject(data.destinations[1]);
+        setAddActive({moon: '', mars: 'active',europa: '', titan: ""})
+        console.log(event);
         break;
       case "europa":
         setSelectedObject(data.destinations[2]);
+        setAddActive({moon: '', mars: '',europa: 'active', titan: ""})
         break;
       case "titan":
         setSelectedObject(data.destinations[3]);
+        setAddActive({moon: '', mars: '',europa: '', titan: "active"})
         break;
 
       default:
         setSelectedObject(data.destinations[0]);
         break;
     }
+    
+    console.log(event);
+    
   };
   return (
     <section className="destination">
@@ -51,16 +65,16 @@ function Destination() {
             <nav>
               <ul>
                 {/* fix me add active classlist */}
-                <li className="moon" onClick={handleClick}>
+                <li className={`moon ${addActive.moon}`} onClick={handleClick}>
                   moon
                 </li>
-                <li className="mars" onClick={handleClick}>
+                <li className={`mars ${addActive.mars} `}onClick={handleClick}>
                   mars
                 </li>
-                <li className="europa" onClick={handleClick}>
+                <li className={addActive.europa} onClick={handleClick}>
                   europa
                 </li>
-                <li className="titan" onClick={handleClick}>
+                <li className={addActive.titan} onClick={handleClick}>
                   titan
                 </li>
               </ul>

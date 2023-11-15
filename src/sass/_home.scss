@@ -13,9 +13,6 @@
     top: 85px;
     left: 15%;
   }
-  // &-bar {
-  //   display: none ;
-  // }
   &-nav {
     display: flex;
     gap: 10%;
@@ -38,7 +35,7 @@
 
 // home styles` 
 .home {
-  @include backGround(url("/src/assets/background-home-desktop.jpg"), cover);
+  @include backGround(url("/src/assets/home/background-home-desktop.jpg"), cover);
   height: 100vh;
 
   &-content {
@@ -77,7 +74,7 @@
   }
 }
 .destination {
-  @include backGround(url("/src/assets/destination/background-destination-tablet.jpg"), cover);
+  @include backGround(url("/src/assets/destination/home/background-destination-tablet.jpg"), cover);
 }
 
 @media (max-width: 820px) {
@@ -101,7 +98,7 @@
   }
   // home style
   .home { 
-    @include backGround(url("/src/assets/background-home-tablet.jpg"), cover);
+    @include backGround(url("/src/assets/home/background-home-tablet.jpg"), cover);
     height: 800px;
     &-content { 
       flex-direction: column;
@@ -189,7 +186,7 @@
 
   // home styles 
   .home { 
-    @include backGround(url("/src/assets/background-home-mobile.jpg"), cover);
+    @include backGround(url("/src/assets/home/background-home-mobile.jpg"), cover);
     height: 1000px;
     &-content { 
       flex-direction: column;

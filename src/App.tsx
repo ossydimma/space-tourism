@@ -5,7 +5,9 @@ import Author from "./pages/Author";
 import Technology from "./pages/Technology";
 import Mistake from "./pages/Mistake";
 
+
 function App() {
+  
   return (
     <>
      <Routes>

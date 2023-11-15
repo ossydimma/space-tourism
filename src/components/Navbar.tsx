@@ -30,15 +30,15 @@ function Navbar() {
     <nav>
       <header className="menu">
         <div className="logo">
-          <img src="/src/assets/logo (1).svg" alt="logo" />
+          <img src="/src/assets/home/logo (1).svg" alt="logo" />
         </div>
         <div className="menu-design"></div>
         {showBar && <div className="menu-bar" onClick={openMenu} >
-          <img src="/src/assets/icon-menu.svg" alt="menu bar" />
+          <img src="/src/assets/home/icon-menu.svg" alt="menu bar" />
         </div>}
         {showMenu && <ul className="menu-nav">
           {hideMenu && <div className="close-menu" onClick={closeMenu} >
-            <img src="/src/assets/icon-close.svg" alt="" />
+            <img src="/src/assets/home/icon-close.svg" alt="" />
           </div>}
           <li>
             <Link to ="/">

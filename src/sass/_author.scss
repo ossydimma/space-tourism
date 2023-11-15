@@ -1,0 +1,120 @@
+.crew {
+    height: 100%;
+    width: 100%;
+    @include backGround(
+        url("/src/assets/author/background-crew-desktop.jpg"),
+        cover
+      );
+    background-position: center;
+    &-content {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        padding-top: 10px;
+
+    }
+    &-details {
+        width: 50%;
+        margin-left: 20%;
+        color: #9a9898;
+        margin-top: 30px;
+    }
+    
+    &-role {
+        p {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            @include fonts (18px, 600)
+            }
+    }
+    
+    &-name {
+        text-transform: uppercase;
+        color: #fff;
+        margin: 20px 0;
+        @include fonts (24px, 400)
+    }
+    &-bio {
+        margin-top: 30px;
+        p {
+            line-height: 25px;
+        }
+    }
+    &-pagination {
+        display: flex;
+        gap: 10px;
+        margin: 60px 20%;
+    }
+    &-image {
+        width: 50%;
+        height: 50%;
+        margin-right: 15%;
+        img {
+            width: 95%;
+            height: 70%;
+        }
+    }
+    
+    
+}
+.pagi {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #6b6a6a;
+    display: flex;
+    padding-left: 10px;
+    gap: 10px;
+    cursor:pointer;
+}
+
+.pagi-active {
+    background: #fff;
+}
+
+@media (max-width: 820px) {
+    .crew {
+        @include backGround(
+            url("/src/assets/author/background-crew-tablet.jpg"),
+            cover
+
+          );
+          height: 100%;
+          &-content {
+            display: flex;
+            align-items: center;
+            margin: -40px auto 0;
+            flex-direction: column;
+            text-align: center;
+            width: 90%;
+          }   
+          &-details {
+            width: 100%;
+            margin: 0 auto;
+          }
+          &-name {
+            margin: 10px 0;
+          
+        }
+        &-bio {
+            margin-top: 20px;
+            
+        }
+        &-pagination {
+            margin: 30px 40%;
+        }
+        &-image {
+            margin-right: 0;
+        }
+    }   
+    
+}
+@media (max-width: 420px) {
+    .crew {
+        @include backGround(
+            url("/src/assets/author/background-crew-mobile.jpg"),
+            cover
+
+          );
+    }
+}
