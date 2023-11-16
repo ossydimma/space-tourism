@@ -1,54 +1,68 @@
 import Navbar from "../components/Navbar";
 import data from "../data.json";
-import { MouseEventHandler, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
+// interface propsType {
+//  addActive : {
+//   list1: string
+//   list2: string
+//   list3: string
+//   list4: string
+//  };
+//  setAddActive: Dispatch<SetStateAction<{
+//   list1: string
+//   list2: string
+//   list3: string
+//   list4: string}>>;
+//   selectedObject: {
+//     name: string;
+//     images: {
+//       png: string;
+//       webp: string;
+//     };
+//     description: string;
+//     distance: string;
+//     travel: string;
+   
+//   }
+//   setSelectedObject: Dispatch<SetStateAction<{
+//     name: string;
+//     images: {
+//       png: string;
+//       webp: string;
+//     };
+//     description?: string;
+//     distance?: string;
+//     travel?: string;
+//     role?: string;
+//     bio?: string;
+//   }>>;
+//   handleClick : (type: string, location: string)=> void
+// } 
+interface propsType {
+  addActive : {
+      list1: string
+      list2: string
+      list3: string
+      list4: string
+     };
+     selectedObject: {
+          name: string;
+          images: {
+            png: string;
+            webp: string;
+          };
+          description?: string;
+          distance?: string;
+          travel?: string;
+          role?: string;
+          bio?: string;
+      };
+        handleClick : (type: string, location: string)=> void
+}
 
-function Destination() {
+function Destination( {addActive, selectedObject, handleClick}: propsType) {
   
-  const [addActive, setAddActive] = useState({
-    moon: 'active',
-    mars: '',
-    europa: '',
-    titan: '',
-  })
-  const [selectedObject, setSelectedObject] = useState<{
-    name: string;
-    images: { png: string; webp: string };
-    description: string;
-    distance: string;
-    travel: string;
-  }>(data.destinations[0]);
 
-  const handleClick: MouseEventHandler<HTMLLIElement> = (event): void => {
-    const liElement = event.target as HTMLLIElement;
-    const innerHTML = liElement.innerHTML;
-
-    switch (innerHTML) {
-      case "moon":
-        setSelectedObject(data.destinations[0]);
-        setAddActive({moon: 'active', mars: '',europa: '', titan: ""})
-        break;
-      case "mars":
-        setSelectedObject(data.destinations[1]);
-        setAddActive({moon: '', mars: 'active',europa: '', titan: ""})
-        console.log(event);
-        break;
-      case "europa":
-        setSelectedObject(data.destinations[2]);
-        setAddActive({moon: '', mars: '',europa: 'active', titan: ""})
-        break;
-      case "titan":
-        setSelectedObject(data.destinations[3]);
-        setAddActive({moon: '', mars: '',europa: '', titan: "active"})
-        break;
-
-      default:
-        setSelectedObject(data.destinations[0]);
-        break;
-    }
-    
-    console.log(event);
-    
-  };
   return (
     <section className="destination">
       <Navbar />
@@ -65,16 +79,16 @@ function Destination() {
             <nav>
               <ul>
                 {/* fix me add active classlist */}
-                <li className={`moon ${addActive.moon}`} onClick={handleClick}>
+                <li className={`moon ${addActive.list1}`} onClick={()=>handleClick("moon", "distination")}>
                   moon
                 </li>
-                <li className={`mars ${addActive.mars} `}onClick={handleClick}>
+                <li className={`mars ${addActive.list2} `}onClick={()=>handleClick("mars", "distination")}>
                   mars
                 </li>
-                <li className={addActive.europa} onClick={handleClick}>
+                <li className={addActive.list3} onClick={()=>handleClick("europa", "distination")}>
                   europa
                 </li>
-                <li className={addActive.titan} onClick={handleClick}>
+                <li className={addActive.list4} onClick={()=>handleClick("titan", "distination")}>
                   titan
                 </li>
               </ul>

@@ -1,5 +1,20 @@
 import Navbar from "../components/Navbar";
-const Author = () => {
+interface propsType {
+  selectedObject: {
+    name: string;
+    images: {
+      png: string;
+      webp: string;
+    };
+    description?: string;
+    distance?: string;
+    travel?: string;
+    role?: string;
+    bio?: string;
+  };
+  handleClick : (type: string, location: string)=> void
+};
+function Author ({ selectedObject, handleClick}: propsType) {
   return (
     <>
       <section className="crew">
