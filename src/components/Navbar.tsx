@@ -1,8 +1,32 @@
 import {useEffect, useState }from "react"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 function Navbar() {
-
+  // const [addActive, setAddActive] = useState({
+  //   item1: "",
+  //   item2: "",
+  //   item3: "",
+  //   item4: "",
+  // });
+  // function clickHandle(page: string): void {
+  //   if (page === 'homePage') {
+  //     setAddActive({item1: "pagi-active", item2: "",item3: "", item4: ""})
+  //   }
+  //   switch(page) {
+  //     case "homePage":
+  //       setAddActive({item1: 'active', item2: '',item3: '', item4: ""})
+  //       break;
+  //     case "destinationPage":
+  //       setAddActive({item1: '', item2: 'active',item3: '', item4: ""})
+  //       break;
+  //     case "crewPage":
+  //       setAddActive({item1: '', item2: '',item3: 'active', item4: ""})
+  //       break;
+  //     case "technologyPage":
+  //       setAddActive({item1: '', item2: '',item3: '', item4: "active"})
+  //       break;
+  // }
+  // }
   const [showMenu, setShowMenu ]= useState<boolean>(window.innerWidth > 480 ? true : false)
   const [hideMenu, setHideMenu ]= useState<boolean>(window.innerWidth > 480 ? false : true)
   const [showBar, setShowBar ]= useState<boolean>(window.innerWidth > 480 ? false : true)
@@ -38,27 +62,27 @@ function Navbar() {
         </div>}
         {showMenu && <ul className="menu-nav">
           {hideMenu && <div className="close-menu" onClick={closeMenu} >
-            <img src="/src/assets/home/icon-close.svg" alt="" />
+            <img src="/src/assets/home/icon-close.svg" alt="close icon" />
           </div>}
-          <li>
-            <Link to ="/">
+          <li >
+            <NavLink to ="/" className="active" >
               <span>00</span> Home
-            </Link>
+            </NavLink>
           </li>
-          <li>
-            <Link to="/Destination">
+          <li >
+            <NavLink to="/Destination" className="active">
               <span>01</span> Destination
-            </Link>
+            </NavLink>
           </li>
-          <li>
-            <Link to="/Author">
+          <li >
+            <NavLink to="/Author" className="active">
               <span>02</span> Crew
-            </Link>
+            </NavLink>
           </li>
-          <li>
-            <Link to="/Technology">
+          <li >
+            <NavLink to="/Technology" className="active">
               <span>03</span> Technology
-            </Link>
+            </NavLink>
           </li>
         </ul>}
       </header>

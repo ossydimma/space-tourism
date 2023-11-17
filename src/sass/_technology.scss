@@ -1,0 +1,48 @@
+.technology {
+  @include backGround(
+    url("/src/assets/technology/background-technology-desktop.jpg"),
+    cover
+  );
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  padding-bottom: 20px;
+  &-box {
+    margin: -10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  
+  &-content {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0 0 6% ;
+    gap: 10%;
+  }
+  &-detail-header {
+    text-transform: uppercase;
+    @include fonts(16px, 600);
+  }
+  &-details {
+    color: #9a9898;
+    width: 40%;
+    
+
+    h1 {
+      text-transform: uppercase;
+      @include fonts(30px, 600);
+      letter-spacing: 3px;
+      margin:10px 0 20px;
+      color: #fff;
+    }
+  }
+  &-descri {
+    p {
+      line-height: 24px;
+      color: #9a9898;
+      padding-bottom: 40px;
+    }
+  }
+}

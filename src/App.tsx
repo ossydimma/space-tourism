@@ -13,31 +13,36 @@ interface addActiveType {
   list4?: string
 } 
 interface selectedObjectType {
-  
+
     name: string;
     images: {
-      png: string;
-      webp: string;
+      png?: string;
+      webp?: string;
+      portrait?: string;
+      landscape?: string;
+
     };
     description?: string;
     distance?: string;
     travel?: string;
     role?: string;
     bio?: string;
+
   }
-//   setSelectedObject: Dispatch<SetStateAction<{
-//     name: string;
-//     images: {
-//       png: string;
-//       webp: string;
-//     };
-//     description?: string;
-//     distance?: string;
-//     travel?: string;
-//     role?: string;
-//     bio?: string;
-//   }>>;
-// }
+  // setSelectedObject: Dispatch<SetStateAction<{
+  //    name: string;
+  //    images: {
+  //      png: string;
+  //      webp: string;
+  //    };
+  //    description?: string;
+  //    distance?: string;
+  //    travel?: string;
+  //    role?: string;
+  //    bio?: string;
+  //  }>>;
+ 
+  
 
 function App() {
   const [addActive, setAddActive] = useState({
@@ -48,30 +53,52 @@ function App() {
    });
 const [selectedObject, setSelectedObject] = useState<selectedObjectType>(data.destinations[0])
 
-  const handleClick = (type: string, location: string): void => {
+  const handleClick = (type: string): void => {
 
     switch (type) {
       case "moon":
         // fix here 
-        location === "distination" ? setSelectedObject(data.destinations[0]): setSelectedObject(data.crew[0])
+        setSelectedObject(data.destinations[0])
         setAddActive({list1: 'active', list2: '',list3: '', list4: ""})
         break;
       case "mars":
-        location === "distination" ? setSelectedObject(data.destinations[1]): setSelectedObject(data.crew[1])
+        setSelectedObject(data.destinations[1])
         setAddActive({list1: '', list2: 'active',list3: '', list4: ""})
         
         break;
       case "europa":
-        location === "distination" ? setSelectedObject(data.destinations[2]): setSelectedObject(data.crew[2])
+        setSelectedObject(data.destinations[2])
         setAddActive({list1: '', list2: '',list3: 'active', list4: ""})
         break;
       case "titan":
-        location === "distination" ? setSelectedObject(data.destinations[3]): setSelectedObject(data.crew[3])
+        setSelectedObject(data.destinations[3])
         setAddActive({list1: '', list2: '',list3: '', list4: "active"})
+        break;
+      case "douglas":
+          setSelectedObject(data.crew[0])
+        break;
+      case "mark":
+          setSelectedObject(data.crew[1])
+        break;
+      case "mission":
+          setSelectedObject(data.crew[2])
+        break;
+      case "victor":
+          setSelectedObject(data.crew[3])
+        break;
+      case "vehicle":
+          setSelectedObject(data.technology[0])
+        break;
+      case "spaceport":
+          setSelectedObject(data.technology[1])
+        break;
+      case "capsule":
+          setSelectedObject(data.technology[2])
         break;
 
       default:
-        setSelectedObject(data.destinations[0]);
+        console.log("data not found");
+        
         break;
     }
     
@@ -82,9 +109,9 @@ const [selectedObject, setSelectedObject] = useState<selectedObjectType>(data.de
     <>
      <Routes>
           <Route path="/"  element= {<Home/>}/>
-          <Route path="/Destination" element={<Destination addActive={addActive} selectedObject= {selectedObject}  handleClick={(type: string, location: string) =>handleClick(type, location)}/> }/>
-          <Route path="/Author" element={<Author selectedObject= {selectedObject}  handleClick={(type: string, location: string) =>handleClick(type, location)}/>}/>
-          <Route path="/Technology" element={<Technology /> }/>
+          <Route path="/Destination" element={<Destination addActive={addActive} selectedObject= {selectedObject} setSelectedObject={setSelectedObject}  handleClick={(type: string, ) =>handleClick(type)}/> }/>
+          <Route path="/Author" element={<Author  selectedObject= {selectedObject} setSelectedObject={setSelectedObject}  handleClick={(type: string, ) =>handleClick(type)}/>}/>
+          <Route path="/Technology" element={<Technology selectedObject= {selectedObject} setSelectedObject={setSelectedObject}  handleClick={(type: string, ) =>handleClick(type)}/> }/>
           <Route path="/*" element={<Mistake/> }/>
       </Routes>
     </>

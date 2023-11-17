@@ -22,9 +22,10 @@
     li {
       text-transform: uppercase;
       @include fonts(12px, 600);
-      :hover {
-        border-bottom: 2px solid #fff;
-      }
+      // :hover {
+      //   width:100%;
+      //   border-bottom: 2px solid #fff;
+      // }
       a {
         display: flex;
         gap: 10%;

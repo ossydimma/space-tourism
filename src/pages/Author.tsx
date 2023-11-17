@@ -1,10 +1,14 @@
 import Navbar from "../components/Navbar";
-interface propsType {
+import { useEffect, Dispatch, SetStateAction, useState } from "react";
+import data from "../data.json"
+export interface propsType {
   selectedObject: {
     name: string;
     images: {
-      png: string;
-      webp: string;
+      png?: string;
+      webp?: string;
+      portrait?: string;
+      landscape?: string;
     };
     description?: string;
     distance?: string;
@@ -12,13 +16,63 @@ interface propsType {
     role?: string;
     bio?: string;
   };
-  handleClick : (type: string, location: string)=> void
+  setSelectedObject: Dispatch<SetStateAction<{
+    name: string;
+    images: {
+      png?: string;
+      webp?: string;
+      portrait?: string;
+      landscape?: string;
+    };
+    description?: string;
+    distance?: string;
+    travel?: string;
+    role?: string;
+    bio?: string;
+  }>>;
+  handleClick : (type: string)=> void
 };
-function Author ({ selectedObject, handleClick}: propsType) {
+function Author ({ selectedObject, setSelectedObject, handleClick}: propsType) {
+  useEffect(() => {
+    setSelectedObject(data.crew[0])
+  
+    return () => {
+      setSelectedObject(data.technology[0])
+    }
+  }, [])
+  const [addActive, setAddActive] = useState({
+      item1: "pagi-active",
+      item2: "",
+      item3: "",
+      item4: "",
+    });
+    function clickHandle(page: string): void {
+    // if (page === 'homePage') {
+    //   setAddActive({item1: "pagi-active", item2: "",item3: "", item4: ""})
+    // }
+    switch(page) {
+      case "douglas":
+        setAddActive({item1: 'pagi-active', item2: '',item3: '', item4: ""})
+        handleClick("douglas")
+        break;
+      case "mark":
+        setAddActive({item1: '', item2: 'pagi-active',item3: '', item4: ""})
+        handleClick("mark")
+        break;
+      case "mission":
+        setAddActive({item1: '', item2: '',item3: 'pagi-active', item4: ""})
+        handleClick("mission")
+        break;
+      case "victor":
+        setAddActive({item1: '', item2: '',item3: '', item4: "pagi-active"})
+        handleClick("victor")
+        break;
+  }
+  }
   return (
     <>
       <section className="crew">
-        <Navbar />
+        <Navbar  />
         <main className="crew-box">
           <p className="destination-header">
             <span>0.2</span> meet your Crew
@@ -27,25 +81,25 @@ function Author ({ selectedObject, handleClick}: propsType) {
             <article>
               <div className="crew-details">
                 <div className="crew-role">
-                  <p>Flight Engineer</p>
+                  <p>{selectedObject.role}</p>
                 </div>
                 <div className="crew-name">
-                  <h1>Anousheh Ansari</h1>
+                  <h1>{selectedObject.name}</h1>
                 </div>
                 <div className="crew-bio">
-                  <p>Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space.</p>
+                  <p>{selectedObject.bio}</p>
                 </div>
               </div>
               <div className="crew-pagination">
-                <div className= "pagi {}"></div>
-                <div className="pagi"></div>
-                <div className="pagi"></div>
-                <div className="pagi pagi-active"></div>
+                <div className= {`pagi ${addActive.item1}`} onClick={()=>clickHandle("douglas")}></div>
+                <div className={`pagi ${addActive.item2}`} onClick={()=>clickHandle("mark")}></div>
+                <div className={`pagi ${addActive.item3}`} onClick={()=>clickHandle("mission")}></div>
+                <div className={`pagi ${addActive.item4}`} onClick={()=>clickHandle("victor")}></div>
               </div>
             </article>
             <div className="crew-image">
               <img
-                src="/src/assets/author/image-anousheh-ansari.webp"
+                src={selectedObject.images.webp}
                 alt="crew image"
               />
             </div>
