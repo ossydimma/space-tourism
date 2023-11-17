@@ -26,24 +26,26 @@ function Technology({selectedObject, setSelectedObject, handleClick}: propsType)
           <span>0.2</span> space launch 101
         </p>
         <div className="technology-content">
-          <div className="navigators">
-            <div className="navigator" onClick={()=> handleClick("vehicle")}>1</div>
+          <div className="technology-navigators">
+            <div className="navigator navigator-active" onClick={()=> handleClick("vehicle")}>1</div>
             <div className="navigator" onClick={()=> handleClick("spaceport")}>2</div>
             <div className="navigator" onClick={()=> handleClick("capsule")}>3</div>
           </div>
-          <article className="technology-details">
-            <div className="technology-detail-header">
-              <p>the technology</p>
+          <div className="technology-content-box">
+            <article className="technology-details">
+              <div className="technology-detail-header">
+                <p>the technology</p>
+              </div>
+              <div className="technology-name">
+                <h1>{selectedObject.name}</h1>
+              </div>
+              <div className="technology-descri">
+                <p>{selectedObject.description}</p>
+              </div>
+            </article>
+            <div className="technology-image">
+              <img src={changeImage} alt="technology image" />
             </div>
-            <div className="technology-name">
-              <h1>{selectedObject.name}</h1>
-            </div>
-            <div className="technology-descri">
-              <p>{selectedObject.description}</p>
-            </div>
-          </article>
-          <div className="technology-image">
-            <img src={changeImage} alt="technology image" />
           </div>
         </div>
         </main>
