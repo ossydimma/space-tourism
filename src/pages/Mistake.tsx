@@ -1,9 +1,20 @@
-import React from 'react'
-
 function Mistake() {
   return (
-    <div>404 page not found</div>
-  )
+    <div
+      style={{
+        width: "100%",
+        height: "100vh",
+        color: "red",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: "2rem",
+        fontWeight: "600",
+      }}
+    >
+      404 page not found
+    </div>
+  );
 }
 
-export default Mistake
+export default Mistake;

@@ -1,91 +1,61 @@
 import Navbar from "../components/Navbar";
 import data from "../data.json";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-// interface propsType {
-//  addActive : {
-//   list1: string
-//   list2: string
-//   list3: string
-//   list4: string
-//  };
-//  setAddActive: Dispatch<SetStateAction<{
-//   list1: string
-//   list2: string
-//   list3: string
-//   list4: string}>>;
-//   selectedObject: {
-//     name: string;
-//     images: {
-//       png: string;
-//       webp: string;
-//     };
-//     description: string;
-//     distance: string;
-//     travel: string;
-   
-//   }
-//   setSelectedObject: Dispatch<SetStateAction<{
-//     name: string;
-//     images: {
-//       png: string;
-//       webp: string;
-//     };
-//     description?: string;
-//     distance?: string;
-//     travel?: string;
-//     role?: string;
-//     bio?: string;
-//   }>>;
-//   handleClick : (type: string, location: string)=> void
-// } 
+
 interface propsType {
-  addActive : {
-      list1: string
-      list2: string
-      list3: string
-      list4: string
-     };
-     selectedObject: {
-          name: string;
-          images: {
-            png?: string;
-            webp?: string;
-            portrait?: string;
-            landscape?: string;
-          };
-          description?: string;
-          distance?: string;
-          travel?: string;
-          role?: string;
-          bio?: string;
+  addActive: {
+    list1: string;
+    list2: string;
+    list3: string;
+    list4: string;
+  };
+  selectedObject: {
+    name: string;
+    images: {
+      png?: string;
+      webp?: string;
+      portrait?: string;
+      landscape?: string;
+    };
+    description?: string;
+    distance?: string;
+    travel?: string;
+    role?: string;
+    bio?: string;
+  };
+  setSelectedObject: Dispatch<
+    SetStateAction<{
+      name: string;
+      images: {
+        png?: string;
+        webp?: string;
+        portrait?: string;
+        landscape?: string;
       };
-      setSelectedObject: Dispatch<SetStateAction<{
-        name: string;
-        images: {
-          png?: string;
-          webp?: string;
-          portrait?: string;
-          landscape?: string;
-        };
-        description?: string;
-        distance?: string;
-        travel?: string;
-        role?: string;
-        bio?: string;
-      }>>;
-        handleClick : (type: string)=> void
+      description?: string;
+      distance?: string;
+      travel?: string;
+      role?: string;
+      bio?: string;
+    }>
+  >;
+  handleClick: (type: string) => void;
 }
 
-function Destination( {addActive, selectedObject, setSelectedObject, handleClick}: propsType) {
-  
+function Destination({
+  addActive,
+  selectedObject,
+  setSelectedObject,
+  handleClick,
+}: propsType) {
   useEffect(() => {
-    setSelectedObject(data.destinations[0])
-  
+    setSelectedObject(data.destinations[0]);
+
     return () => {
-      setSelectedObject(data.crew[0])
-    }
-  }, [])
-  
+      setSelectedObject(data.technology[0]);
+    };
+  }, []);
+
   return (
     <section className="destination">
       <Navbar />
@@ -100,16 +70,28 @@ function Destination( {addActive, selectedObject, setSelectedObject, handleClick
           <article className="destination-text">
             <nav>
               <ul>
-                <li className={addActive.list1} onClick={()=>handleClick("moon")}>
+                <li
+                  className={addActive.list1}
+                  onClick={() => handleClick("moon")}
+                >
                   moon
                 </li>
-                <li className={addActive.list2}onClick={()=>handleClick("mars")}>
+                <li
+                  className={addActive.list2}
+                  onClick={() => handleClick("mars")}
+                >
                   mars
                 </li>
-                <li className={addActive.list3} onClick={()=>handleClick("europa")}>
+                <li
+                  className={addActive.list3}
+                  onClick={() => handleClick("europa")}
+                >
                   europa
                 </li>
-                <li className={addActive.list4} onClick={()=>handleClick("titan")}>
+                <li
+                  className={addActive.list4}
+                  onClick={() => handleClick("titan")}
+                >
                   titan
                 </li>
               </ul>

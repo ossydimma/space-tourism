@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import { useEffect, Dispatch, SetStateAction, useState } from "react";
-import data from "../data.json"
+import data from "../data.json";
 export interface propsType {
   selectedObject: {
     name: string;
@@ -16,63 +16,62 @@ export interface propsType {
     role?: string;
     bio?: string;
   };
-  setSelectedObject: Dispatch<SetStateAction<{
-    name: string;
-    images: {
-      png?: string;
-      webp?: string;
-      portrait?: string;
-      landscape?: string;
-    };
-    description?: string;
-    distance?: string;
-    travel?: string;
-    role?: string;
-    bio?: string;
-  }>>;
-  handleClick : (type: string)=> void
-};
-function Author ({ selectedObject, setSelectedObject, handleClick}: propsType) {
+  setSelectedObject: Dispatch<
+    SetStateAction<{
+      name: string;
+      images: {
+        png?: string;
+        webp?: string;
+        portrait?: string;
+        landscape?: string;
+      };
+      description?: string;
+      distance?: string;
+      travel?: string;
+      role?: string;
+      bio?: string;
+    }>
+  >;
+  handleClick: (type: string) => void;
+}
+function Author({ selectedObject, setSelectedObject, handleClick }: propsType) {
   useEffect(() => {
-    setSelectedObject(data.crew[0])
-  
+    setSelectedObject(data.crew[0]);
+
     return () => {
-      setSelectedObject(data.technology[0])
-    }
-  }, [])
+      setSelectedObject(data.destinations[0]);
+    };
+  }, []);
   const [addActive, setAddActive] = useState({
-      item1: "pagi-active",
-      item2: "",
-      item3: "",
-      item4: "",
-    });
-    function clickHandle(page: string): void {
-    // if (page === 'homePage') {
-    //   setAddActive({item1: "pagi-active", item2: "",item3: "", item4: ""})
-    // }
-    switch(page) {
+    item1: "pagi-active",
+    item2: "",
+    item3: "",
+    item4: "",
+  });
+  function clickHandle(page: string): void {
+    switch (page) {
       case "douglas":
-        setAddActive({item1: 'pagi-active', item2: '',item3: '', item4: ""})
-        handleClick("douglas")
+        setAddActive({ item1: "pagi-active", item2: "", item3: "", item4: "" });
+        handleClick("douglas");
         break;
       case "mark":
-        setAddActive({item1: '', item2: 'pagi-active',item3: '', item4: ""})
-        handleClick("mark")
+        setAddActive({ item1: "", item2: "pagi-active", item3: "", item4: "" });
+        handleClick("mark");
         break;
       case "mission":
-        setAddActive({item1: '', item2: '',item3: 'pagi-active', item4: ""})
-        handleClick("mission")
+        setAddActive({ item1: "", item2: "", item3: "pagi-active", item4: "" });
+        handleClick("mission");
         break;
       case "victor":
-        setAddActive({item1: '', item2: '',item3: '', item4: "pagi-active"})
-        handleClick("victor")
+        setAddActive({ item1: "", item2: "", item3: "", item4: "pagi-active" });
+        handleClick("victor");
         break;
-  }
+    }
   }
   return (
     <>
       <section className="crew">
-        <Navbar  />
+        <Navbar />
         <main className="crew-box">
           <p className="destination-header">
             <span>0.2</span> meet your Crew
@@ -91,23 +90,32 @@ function Author ({ selectedObject, setSelectedObject, handleClick}: propsType) {
                 </div>
               </div>
               <div className="crew-pagination">
-                <div className= {`pagi ${addActive.item1}`} onClick={()=>clickHandle("douglas")}></div>
-                <div className={`pagi ${addActive.item2}`} onClick={()=>clickHandle("mark")}></div>
-                <div className={`pagi ${addActive.item3}`} onClick={()=>clickHandle("mission")}></div>
-                <div className={`pagi ${addActive.item4}`} onClick={()=>clickHandle("victor")}></div>
+                <div
+                  className={`pagi ${addActive.item1}`}
+                  onClick={() => clickHandle("douglas")}
+                ></div>
+                <div
+                  className={`pagi ${addActive.item2}`}
+                  onClick={() => clickHandle("mark")}
+                ></div>
+                <div
+                  className={`pagi ${addActive.item3}`}
+                  onClick={() => clickHandle("mission")}
+                ></div>
+                <div
+                  className={`pagi ${addActive.item4}`}
+                  onClick={() => clickHandle("victor")}
+                ></div>
               </div>
             </article>
             <div className="crew-image">
-              <img
-                src={selectedObject.images.webp}
-                alt="crew image"
-              />
+              <img src={selectedObject.images.webp} alt="crew image" />
             </div>
           </div>
         </main>
       </section>
     </>
   );
-};
+}
 
 export default Author;

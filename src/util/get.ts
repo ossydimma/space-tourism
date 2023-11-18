@@ -1,5 +1,6 @@
 import { MouseEventHandler, useState } from "react";
 import data from "../data.json"
+// this file is for educational purpose 
 interface addActiveType {
     moon: string
     mars: string
