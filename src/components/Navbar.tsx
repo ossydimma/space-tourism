@@ -1,5 +1,6 @@
 import {useEffect, useState }from "react"
 import { NavLink } from "react-router-dom"
+import logo from '../assets/home/logo (1).svg'
 
 function Navbar() {
   // const [addActive, setAddActive] = useState({
@@ -54,7 +55,7 @@ function Navbar() {
     <nav>
       <header className="menu">
         <div className="logo">
-          <img src="/src/assets/home/logo (1).svg" alt="logo" />
+          <img src={logo} alt="logo" />
         </div>
         <div className="menu-design"></div>
         {showBar && <div className="menu-bar" onClick={openMenu} >
