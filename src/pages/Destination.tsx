@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import data from "../data.json";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect} from "react";
 
 interface propsType {
   addActive: {
