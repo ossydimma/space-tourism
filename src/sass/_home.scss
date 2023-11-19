@@ -104,10 +104,10 @@
       url("/src/assets/home/background-home-tablet.jpg"),
       cover
     );
-    height: 100%;
+    height: 1200px;
     &-content {
       flex-direction: column;
-      margin: 60px auto 100px;
+      margin: 130px auto;
       gap: 100px;
     }
     &-article {
@@ -121,12 +121,13 @@
       }
       h2 {
         text-transform: uppercase;
-        margin: 15px -2%;
+        margin: 20px 0;
         letter-spacing: 10px;
         @include fonts(80px, 400);
       }
       p {
-        line-height: 25px;
+        line-height: 30px;
+        @include fonts(20px, 400);
       }
     }
     .explore {
@@ -137,8 +138,7 @@
       border-radius: 50%;
       @include displayFlex(center, center);
       text-transform: uppercase;
-      margin-top: 30%;
-      margin-bottom: 20%;
+      margin-top: 50%;
       @include fonts(18px, 400);
     }
   }
@@ -202,10 +202,10 @@
     &-article {
       h2 {
         text-transform: uppercase;
-        margin: 0 0;
+        margin-left: 0;
         padding-top: 40px;
-        letter-spacing: 20px;
-        @include fonts(55px, 400);
+        letter-spacing: 15px;
+        @include fonts(60px, 400);
       }
       p {
         margin: 45px -15% 0;
