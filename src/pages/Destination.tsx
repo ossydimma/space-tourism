@@ -1,8 +1,11 @@
 import Navbar from "../components/Navbar";
 import data from "../data.json";
-import { Dispatch, SetStateAction, useEffect} from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
+import moonImage from "../assets/destination/image-moon.webp";
 
 interface propsType {
+  getImage: string;
+  setGetImage: React.Dispatch<React.SetStateAction<string>>;
   addActive: {
     list1: string;
     list2: string;
@@ -43,6 +46,8 @@ interface propsType {
 }
 
 function Destination({
+  getImage,
+  setGetImage,
   addActive,
   selectedObject,
   setSelectedObject,
@@ -50,6 +55,7 @@ function Destination({
 }: propsType) {
   useEffect(() => {
     setSelectedObject(data.destinations[0]);
+    setGetImage(moonImage);
 
     return () => {
       setSelectedObject(data.technology[0]);
@@ -65,7 +71,7 @@ function Destination({
         </p>
         <div className="destination-content">
           <div className="destination-image">
-            <img src={selectedObject.images.webp} alt="destination image" />
+            <img src={getImage} alt="destination image" />
           </div>
           <article className="destination-text">
             <nav>

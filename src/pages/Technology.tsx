@@ -1,6 +1,9 @@
 import { useEffect, Dispatch, SetStateAction, useState } from "react";
 import Navbar from "../components/Navbar";
 import data from "../data.json";
+import vichleImage2 from "../assets/technology/image-launch-vehicle-portrait.jpg";
+import capsuleImage2 from "../assets/technology/image-space-capsule-portrait.jpg";
+import spaceportImage2 from "../assets/technology/image-spaceport-portrait.jpg";
 
 interface propsType {
   selectedObject: {
@@ -46,24 +49,32 @@ function Technology({
     item2: "",
     item3: "",
   });
+  const [getImage, setGetImage] = useState(vichleImage2);
   function clickHandle(page: string): void {
     switch (page) {
       case "vehicle":
         setAddActive({ item1: "navigator-active", item2: "", item3: "" });
         handleClick("vehicle");
+        setGetImage(vichleImage2);
         break;
       case "spaceport":
         setAddActive({ item1: "", item2: "navigator-active", item3: "" });
         handleClick("spaceport");
+        setGetImage(spaceportImage2);
         break;
       case "capsule":
         setAddActive({ item1: "", item2: "", item3: "navigator-active" });
         handleClick("capsule");
+        setGetImage(capsuleImage2);
         break;
     }
   }
 
   useEffect(() => {
+    // window.addEventListener('resize', ()=> {
+    //   window.innerWidth > 820 ? setGetImage(vichleImage2) : setGetImage(vichleImage)
+    // })
+    // // setGetImage(window.innerWidth > 820 ? vichleImage2 : vichleImage)
     setSelectedObject(data.technology[0]);
     return () => {
       setSelectedObject(data.destinations[0]);
@@ -112,17 +123,7 @@ function Technology({
               </div>
             </div>
             <div className="technology-image">
-              {window.innerWidth > 820 ? (
-                <img
-                  src={selectedObject.images.portrait}
-                  alt="technology image"
-                />
-              ) : (
-                <img
-                  src={selectedObject.images.landscape}
-                  alt="technology image"
-                />
-              )}
+              <img src={getImage} alt="technology image" />
             </div>
           </div>
         </main>

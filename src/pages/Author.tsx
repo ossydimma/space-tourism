@@ -1,7 +1,10 @@
 import Navbar from "../components/Navbar";
 import { useEffect, Dispatch, SetStateAction, useState } from "react";
 import data from "../data.json";
+import douglasImage from "../assets/author/image-douglas-hurley.webp"
 export interface propsType {
+  getImage: string;
+  setGetImage: React.Dispatch<React.SetStateAction<string>>;
   selectedObject: {
     name: string;
     images: {
@@ -34,9 +37,10 @@ export interface propsType {
   >;
   handleClick: (type: string) => void;
 }
-function Author({ selectedObject, setSelectedObject, handleClick }: propsType) {
+function Author({getImage,setGetImage, selectedObject, setSelectedObject, handleClick }: propsType) {
   useEffect(() => {
     setSelectedObject(data.crew[0]);
+    setGetImage(douglasImage)
 
     return () => {
       setSelectedObject(data.destinations[0]);
@@ -109,7 +113,7 @@ function Author({ selectedObject, setSelectedObject, handleClick }: propsType) {
               </div>
             </article>
             <div className="crew-image">
-              <img src={selectedObject.images.webp} alt="crew image" />
+              <img src={getImage} alt="crew image" />
             </div>
           </div>
         </main>
