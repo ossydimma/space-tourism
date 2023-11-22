@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/home/logo (1).svg";
+import menu from "../assets/home/icon-menu.svg";
+import cancel from "../assets/home/icon-close.svg";
+
 
 function Navbar() {
   // const [addActive, setAddActive] = useState({
@@ -66,14 +69,14 @@ function Navbar() {
         <div className="menu-design"></div>
         {showBar && (
           <div className="menu-bar" onClick={openMenu}>
-            <img src="/src/assets/home/icon-menu.svg" alt="menu bar" />
+            <img src={menu} alt="menu bar" />
           </div>
         )}
         {showMenu && (
           <ul className="menu-nav">
             {hideMenu && (
               <div className="close-menu" onClick={closeMenu}>
-                <img src="/src/assets/home/icon-close.svg" alt="close icon" />
+                <img src={cancel} alt="close icon" />
               </div>
             )}
             {/*fixme: get some issuse with the active class */}

@@ -12,6 +12,12 @@ interface propsType {
     list3: string;
     list4: string;
   };
+  setAddActive: React.Dispatch<React.SetStateAction<{
+    list1: string;
+    list2: string;
+    list3: string;
+    list4: string;
+}>>
   selectedObject: {
     name: string;
     images: {
@@ -49,6 +55,7 @@ function Destination({
   getImage,
   setGetImage,
   addActive,
+  setAddActive,
   selectedObject,
   setSelectedObject,
   handleClick,
@@ -56,6 +63,7 @@ function Destination({
   useEffect(() => {
     setSelectedObject(data.destinations[0]);
     setGetImage(moonImage);
+    setAddActive({ list1: "active", list2: "", list3: "", list4: "" });
 
     return () => {
       setSelectedObject(data.technology[0]);

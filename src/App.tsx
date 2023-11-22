@@ -14,12 +14,7 @@ import douglasImage from "./assets/author/image-douglas-hurley.webp"
 import markImage from "./assets/author/image-mark-shuttleworth.webp"
 import missionImage from "./assets/author/image-victor-glover.webp"
 import victorImage from "./assets/author/image-anousheh-ansari.webp"
-// import vichleImage from "./assets/technology/image-launch-vehicle-landscape.jpg"
-// import vichleImage2 from "./assets/technology/image-launch-vehicle-portrait.jpg"
-// import capsuleImage from "./assets/technology/image-space-capsule-landscape.jpg"
-// import capsuleImage2 from "./assets/technology/image-space-capsule-portrait.jpg"
-// import spaceportImage from "./assets/technology/image-spaceport-landscape.jpg"
-// import spaceportImage2 from "./assets/technology/image-spaceport-portrait.jpg"
+
 
 
 
@@ -120,6 +115,7 @@ function App() {
               getImage={getImage}
               setGetImage={setGetImage}
               addActive={addActive}
+              setAddActive={setAddActive}
               selectedObject={selectedObject}
               setSelectedObject={setSelectedObject}
               handleClick={(type: string) => handleClick(type)}

@@ -104,7 +104,7 @@
       url("/src/assets/home/background-home-tablet.jpg"),
       cover
     );
-    height: 1000px;
+    height: 1100px;
     &-content {
       flex-direction: column;
       margin: 130px auto;
@@ -138,7 +138,7 @@
       border-radius: 50%;
       @include displayFlex(center, center);
       text-transform: uppercase;
-      margin-top: 50%;
+      margin-top: 30%;
       @include fonts(18px, 400);
     }
   }
