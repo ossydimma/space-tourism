@@ -93,6 +93,9 @@
       url("/src/assets/destination/background-destination-tablet.jpg"),
       cover
     );
+    &-box {
+      margin: 50px auto;
+    }
     height: 1100px;
     width: 100%;
     padding-bottom: 30px;
@@ -103,7 +106,7 @@
       @include fonts(14px, 400);
     }
     &-header {
-      margin: 5% 0 70px 0;
+      margin: 15% 0 70px 0;
       letter-spacing: 3px;
       text-transform: uppercase;
       @include fonts(16px, 400);
