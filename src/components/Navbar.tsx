@@ -6,31 +6,31 @@ import cancel from "../assets/home/icon-close.svg";
 
 
 function Navbar() {
-  const [addActive, setAddActive] = useState({
-    item1: "nav-active",
-    item2: "",
-    item3: "",
-    item4: "",
-  });
-  function clickHandle(page: string): void {
-    // if (page === 'homePage') {
-    //   setAddActive({item1: "nav-active", item2: "",item3: "", item4: ""})
-    // }
-    switch(page) {
-      case "homePage":
-        setAddActive({item1: 'nav-active', item2: '',item3: '', item4: ""})
-        break;
-      case "destinationPage":
-        setAddActive({item1: '', item2: 'nav-active',item3: '', item4: ""})
-        break;
-      case "crewPage":
-        setAddActive({item1: '', item2: '',item3: 'nav-active', item4: ""})
-        break;
-      case "technologyPage":
-        setAddActive({item1: '', item2: '',item3: '', item4: "nav-active"})
-        break;
-  }
-  }
+  // const [addActive, setAddActive] = useState({
+  //   item1: "nav-active",
+  //   item2: "",
+  //   item3: "",
+  //   item4: "",
+  // });
+  // function clickHandle(page: string): void {
+  //   // if (page === 'homePage') {
+  //   //   setAddActive({item1: "nav-active", item2: "",item3: "", item4: ""})
+  //   // }
+  //   switch(page) {
+  //     case "homePage":
+  //       setAddActive({item1: 'nav-active', item2: '',item3: '', item4: ""})
+  //       break;
+  //     case "destinationPage":
+  //       setAddActive({item1: '', item2: 'nav-active',item3: '', item4: ""})
+  //       break;
+  //     case "crewPage":
+  //       setAddActive({item1: '', item2: '',item3: 'nav-active', item4: ""})
+  //       break;
+  //     case "technologyPage":
+  //       setAddActive({item1: '', item2: '',item3: '', item4: "nav-active"})
+  //       break;
+  // }
+  // }
   const [showMenu, setShowMenu] = useState<boolean>(
     window.innerWidth > 480 ? true : false
   );
@@ -41,7 +41,7 @@ function Navbar() {
     window.innerWidth > 480 ? false : true
   );
   useEffect(() => {
-    setAddActive({item1: 'nav-active', item2: '',item3: '', item4: ""})
+    // setAddActive({item1: 'nav-active', item2: '',item3: '', item4: ""})
     window.addEventListener("resize", () => {
       if (window.innerWidth > 480) {
         setShowBar(false);
@@ -81,22 +81,22 @@ function Navbar() {
               </div>
             )}
             {/*fixme: get some issuse with the active class */}
-            <li className={addActive.item1} onClick={()=> clickHandle("homePage")}>
+            <li>
               <NavLink to="/" >
                 <span>00</span> Home
               </NavLink>
             </li>
-            <li className={addActive.item2} onClick={()=> clickHandle("destinationPage")}>
+            <li >
               <NavLink to="/Destination" >
                 <span>01</span> Destination
               </NavLink>
             </li>
-            <li className={addActive.item3} onClick={()=> clickHandle("crewPage")}>
+            <li >
               <NavLink to="/Author" >
                 <span>02</span> Crew
               </NavLink>
             </li>
-            <li className={addActive.item4} onClick={()=> clickHandle("technologyPage")}>
+            <li>
               <NavLink to="/Technology" >
                 <span>03</span> Technology
               </NavLink>
