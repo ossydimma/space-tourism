@@ -41,11 +41,11 @@
     cover
   );
   height: 100vh;
-
+  padding-bottom: 109px;
   &-content {
     @include displayFlex(space-around, center);
     margin-left: -30px;
-    margin-top: 280px;
+    margin-top: 200px;
   }
   &-article {
     width: 30%;
@@ -59,7 +59,7 @@
       text-transform: uppercase;
       margin: 20px 50px;
       letter-spacing: 25px;
-      @include fonts(35px, 600);
+      @include fonts(35px, 700);
     }
     p {
       line-height: 30px;
@@ -108,7 +108,8 @@
       url("/src/assets/home/background-home-tablet.jpg"),
       cover
     );
-    height: 1100px;
+    height: auto;
+    padding-bottom: 15px;
     &-content {
       flex-direction: column;
       margin: 130px auto;
@@ -124,7 +125,6 @@
         @include fonts(14px, 400);
       }
       h2 {
-        text-transform: uppercase;
         margin: 20px 0;
         letter-spacing: 10px;
         @include fonts(80px, 400);
@@ -135,8 +135,8 @@
       }
     }
     .explore {
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: 250px;
       background: #fff;
       color: #000;
       border-radius: 50%;
@@ -197,7 +197,7 @@
       url("/src/assets/home/background-home-mobile.jpg"),
       cover
     );
-    height: 1000px;
+    height: auto;
     &-content {
       flex-direction: column;
       margin: 20px auto;
@@ -205,11 +205,10 @@
     }
     &-article {
       h2 {
-        text-transform: uppercase;
-        margin-left: 0;
+        margin: 0 0;
         padding-top: 40px;
-        letter-spacing: 15px;
-        @include fonts(60px, 400);
+        letter-spacing: 10px;
+        @include fonts(40px,700);
       }
       p {
         margin: 45px -15% 0;
@@ -218,7 +217,8 @@
       }
     }
     .explore {
-    
+      width: 200px;
+      height: 200px;
       margin-top: 0;
     }
   }
